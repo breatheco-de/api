@@ -234,7 +234,9 @@ class Tables extends Migration
                 $table->bigIncrements('id');
                 $table->string('slug', 200)->unique();
                 $table->string('name', 255);
+                $table->string('logo', 255);
                 $table->integer('duration_in_hours')->nullable()->default(0);
+                $table->integer('duration_in_days')->nullable()->default(0);
                 $table->integer('week_hours')->nullable();
                 $table->text('description');
                 $table->timestamps();

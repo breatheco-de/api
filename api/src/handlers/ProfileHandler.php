@@ -41,6 +41,8 @@ class ProfileHandler extends MainHandler{
         }
         $profile = $this->setMandatory($profile,$data,'slug',BCValidator::SLUG);
         $profile = $this->setMandatory($profile,$data,'name',BCValidator::NAME);
+        $profile = $this->setMandatory($profile,$data,'logo',BCValidator::NAME);
+        $profile = $this->setMandatory($profile,$data,'duration_in_days',BCValidator::POINTS);
         $profile = $this->setMandatory($profile,$data,'duration_in_hours',BCValidator::POINTS);
         $profile = $this->setMandatory($profile,$data,'week_hours',BCValidator::POINTS);
         $profile = $this->setMandatory($profile,$data,'description',BCValidator::DESCRIPTION);
@@ -72,7 +74,9 @@ class ProfileHandler extends MainHandler{
         if(is_numeric($profileId)) $profile->slug = $data['slug'];
         $profile = $this->setOptional($profile,$data,'slug',BCValidator::SLUG);
         $profile = $this->setOptional($profile,$data,'name',BCValidator::NAME);
+        $profile = $this->setMandatory($profile,$data,'logo',BCValidator::NAME);
         $profile = $this->setOptional($profile,$data,'duration_in_hours',BCValidator::POINTS);
+        $profile = $this->setMandatory($profile,$data,'duration_in_days',BCValidator::POINTS);
         $profile = $this->setOptional($profile,$data,'week_hours',BCValidator::POINTS);
         $profile = $this->setOptional($profile,$data,'description',BCValidator::DESCRIPTION);
 
