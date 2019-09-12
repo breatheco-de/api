@@ -12,12 +12,12 @@ you can find a details explanation of all the endpoints here:
 1. PHP 7 ([click here if you are using cloud 9](https://community.c9.io/t/how-to-upgrade-a-php-workspace-to-version-7/8570)
 2. Composer
 3. MySQL (for now)
- 
+
 ### Tests
 
 Run all the tests
 ```
-$ ./vendor/bin/phpunit api/src/tests/ --colors
+$ bash api/src/tests/initialize.sh
 ```
 
 Run a particular group of tests
@@ -65,6 +65,7 @@ $ php vendor/bin/phinx seed:run -s TalentTreeSeeder -c api/phinx-config.php -e u
 ```
 
 ### Running PHP on Sitegrground (production)
+
 Sitegroung has several versions of PHP, you can pick the right one by typing:
 ```
 For PHP 7 : /usr/local/php70/bin/php-cli
