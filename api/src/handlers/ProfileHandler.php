@@ -76,7 +76,7 @@ class ProfileHandler extends MainHandler{
         $profile = $this->setOptional($profile,$data,'name',BCValidator::NAME);
         $profile = $this->setOptional($profile,$data,'logo',BCValidator::NAME);
         $profile = $this->setOptional($profile,$data,'duration_in_hours',BCValidator::POINTS);
-        $profile = $this->setMandatory($profile,$data,'duration_in_days',BCValidator::POINTS);
+        $profile = $this->setOptional($profile,$data,'duration_in_days',BCValidator::POINTS);
         $profile = $this->setOptional($profile,$data,'week_hours',BCValidator::POINTS);
         $profile = $this->setOptional($profile,$data,'description',BCValidator::DESCRIPTION);
 
