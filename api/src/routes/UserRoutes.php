@@ -3,9 +3,9 @@
 namespace Routes;
 
 class UserRoutes{
-    
+
     public function __construct($app, $scopes){
-        
+
         /**
          * Everything Related to the user
          **/
@@ -20,15 +20,19 @@ class UserRoutes{
         $app->post('/credentials/user/', array($userHandler, 'createCredentialsHandler'))->add($scopes(['super_admin']));
         $app->post('/credentials/user/{user_id}', array($userHandler, 'updateCredentialsHandler'))->add($scopes(['sync_data']));
         $app->delete('/user/{user_id}', array($userHandler, 'deleteUser'))->add($scopes(['super_admin']));
-        
+
         $app->post('/remind/user/{user_email}', array($userHandler, 'emailRemind'))->add($scopes([]));
         $app->get('/remind/user/{user_id}', array($userHandler, 'getRemindToken'))->add($scopes(['read_basic_info']));
         $app->post('/user/{user_id}/password', array($userHandler, 'changePassword'));
-        
+
         $app->post('/settings/user/{user_id}', array($userHandler, 'updateUserSettings'))->add($scopes(['user_profile']));
         $app->get('/settings/user/{user_id}', array($userHandler, 'getUserSettings'))->add($scopes(['user_profile']));
 
+        $app->post('/user/{user_id}/device', array($userHandler, 'createUserDevice'))->add($scopes(['user_profile']));
+        $app->get('/user/{user_id}/device', array($userHandler, 'getUserDevices'))->add($scopes(['user_profile']));
+        $app->delete('/user/device/{device_id}', array($userHandler, 'deleteUserDevice'))->add($scopes(['user_profile']));
+
     }
-    
+
 
 }

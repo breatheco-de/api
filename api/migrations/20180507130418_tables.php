@@ -68,6 +68,18 @@ class Tables extends Migration
             });
         }
 
+        if(!$this->schema->hasTable('device')){
+            $this->schema->create('device', function($table) {
+                $table->engine = 'InnoDB';
+                $table->unsignedBigInteger('user_id');
+                $table->string('token', 255);
+                $table->timestamps();
+
+                $table->primary('token');
+                $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            });
+        }
+
         if(!$this->schema->hasTable('students')){
             $this->schema->create('students', function($table) {
                 $table->engine = 'InnoDB';

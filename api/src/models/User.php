@@ -1,6 +1,6 @@
 <?php
 
-class User extends \Illuminate\Database\Eloquent\Model 
+class User extends \Illuminate\Database\Eloquent\Model
 {
     protected $hidden = ['settings', 'parent_location'];
 
@@ -31,20 +31,24 @@ class User extends \Illuminate\Database\Eloquent\Model
     public function parent_location(){
         return $this->belongsTo('Location');
     }
-    
+
     public function getUserSettings(){
         return unserialize($this->settings);
     }
-    
+
     public function student(){
         return $this->hasOne('Student');
     }
-    
+
     public function teacher(){
         return $this->hasOne('Teacher');
     }
-    
+
     public function passtokens(){
         return $this->hasMany('Passtoken');
+    }
+
+    public function devices(){
+        return $this->hasMany('Device');
     }
 }

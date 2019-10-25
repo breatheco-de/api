@@ -91,6 +91,7 @@ class BreatheCodeAPI
             'access_lifetime' => (3600*24) //one day
         ));
 
+        //print_r($request->request); die();
         if (isset($request->request['expires_in'])){
             // one year would be 315,00,000, one day 86,400, one hour 3600
             $server->setConfig('access_lifetime',  (int)$request->request['expires_in']);
