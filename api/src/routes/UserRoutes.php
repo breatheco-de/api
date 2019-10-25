@@ -28,9 +28,9 @@ class UserRoutes{
         $app->post('/settings/user/{user_id}', array($userHandler, 'updateUserSettings'))->add($scopes(['user_profile']));
         $app->get('/settings/user/{user_id}', array($userHandler, 'getUserSettings'))->add($scopes(['user_profile']));
 
-        $app->post('/user/{user_id}/device', array($userHandler, 'createUserDevice'))->add($scopes(['user_profile']));
-        $app->get('/user/{user_id}/device', array($userHandler, 'getUserDevices'))->add($scopes(['user_profile']));
-        $app->delete('/user/device/{device_id}', array($userHandler, 'deleteUserDevice'))->add($scopes(['user_profile']));
+        $app->post('/user/{user_id}/device', array($userHandler, 'createUserDevice'))->add($scopes(['read_basic_info']));
+        $app->get('/user/{user_id}/device', array($userHandler, 'getUserDevices'))->add($scopes(['read_basic_info']));
+        $app->delete('/user/device/{device_id}', array($userHandler, 'deleteUserDevice'))->add($scopes(['read_basic_info']));
 
     }
 
