@@ -80,6 +80,7 @@ class CohortHandler extends MainHandler{
         $cohort->stage = Cohort::$possibleStages[0]; //not-started
         $cohort = $this->setOptional($cohort,$data,'language',BCValidator::SLUG);
         $cohort = $this->setOptional($cohort,$data,'streaming_slug',BCValidator::SLUG);
+        $cohort = $this->setOptional($cohort,$data,'syllabus_slug',BCValidator::SLUG);
         $cohort = $this->setOptional($cohort,$data,'slack_url',BCValidator::URL);
         $cohort = $this->setOptional($cohort,$data,'kickoff_date',BCValidator::DATETIME);
         $cohort = $this->setOptional($cohort,$data,'ending_date',BCValidator::DATETIME);
@@ -119,6 +120,7 @@ class CohortHandler extends MainHandler{
         $cohort = $this->setOptional($cohort,$data,'stage',BCValidator::SLUG);
         $cohort = $this->setOptional($cohort,$data,'slug',BCValidator::SLUG);
         $cohort = $this->setOptional($cohort,$data,'streaming_slug',BCValidator::SLUG);
+        $cohort = $this->setOptional($cohort,$data,'syllabus_slug',BCValidator::SLUG);
         $cohort = $this->setOptional($cohort,$data,'current_day',BCValidator::INT);
         $cohort = $this->setOptional($cohort,$data,'language',BCValidator::SLUG);
         $cohort = $this->setOptional($cohort,$data,'slack_url',BCValidator::URL);
