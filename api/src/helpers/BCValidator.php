@@ -38,8 +38,8 @@ class BCValidator{
             case self::SLUG:
                 
                 $validator = new Rules\AllOf(
-                    new Rules\Slug(),
-                    new Rules\Length(1, 100)
+                    new Rules\Slug('.'),
+                    new Rules\Length(1, 150)
                 );
                 if(!$validator->validate($value)) throw new Exception('Parameter '.$name.' has an invalid value: '.$value, 400);
                 
