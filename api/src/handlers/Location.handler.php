@@ -17,6 +17,8 @@ class LocationHandler extends MainHandler{
         $location = $this->setMandatory($location,$data,'name',BCValidator::NAME);
         $location = $this->setMandatory($location,$data,'slug',BCValidator::SLUG);
         $location = $this->setOptional($location,$data,'address');
+        $location = $this->setOptional($location,$data,'logistical_information',BCValidator::DESCRIPTION);
+        
 
         if(!empty($data['country']))
         {
@@ -41,6 +43,7 @@ class LocationHandler extends MainHandler{
         $location = $this->setMandatory($location,$data,'name',BCValidator::NAME);
         $location = $this->setMandatory($location,$data,'slug',BCValidator::SLUG);
         $location = $this->setOptional($location,$data,'address');
+        $location = $this->setOptional($location,$data,'logistical_information',BCValidator::DESCRIPTION);
 
         if(!empty($data['country']))
         {
@@ -72,6 +75,7 @@ class LocationHandler extends MainHandler{
         $location->name = $data['name'];
         $location->slug = $data['slug'];
         $location->address = $data['address'];
+        $location = $this->setOptional($location,$data,'logistical_information',BCValidator::DESCRIPTION);
         $location->save();
         
         return $this->success($response,$location);

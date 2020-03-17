@@ -115,6 +115,7 @@ class Tables extends Migration
                 $table->string('stage', 50);//['not-started', 'on-prework', 'on-course','on-final-project','finished']
                 $table->string('language', 2);//['es','en']
                 $table->string('slack_url', 200);
+                $table->string('meeting_url', 200)->nullable();
                 $table->timestamps();
 
                 $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
@@ -166,6 +167,7 @@ class Tables extends Migration
                 $table->string('name', 200);
                 $table->string('country', 200);
                 $table->string('address', 200);
+                $table->text('logistical_information')->nullable();
                 $table->timestamps();
 
             });
