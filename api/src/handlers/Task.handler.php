@@ -40,7 +40,7 @@ class TaskHandler extends MainHandler{
 
         $student = Student::find($studentId);
         if(!$student){
-            $user = User::where('username', $data['username'])->first();
+            $user = User::where('username', $studentId)->first();
             if(!$user) throw new ArgumentException('Invalid student id');
             $student = $user->student();
             if(!$student) throw new ArgumentException('Invalid student id');
