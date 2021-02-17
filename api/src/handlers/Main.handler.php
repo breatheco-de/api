@@ -139,6 +139,11 @@ class MainHandler{
         return $this->success($response,$log);
     }
 
+    public function testHeaders(Request $request, Response $response) {
+        print_r($request->getHeaders()); die();
+        return $this->success($response, "OK");
+    }
+
     private function _loadCSV($content,$forceUpdate = false, $validateSpecialty = false){
 
         $lines = explode(PHP_EOL, $content);
