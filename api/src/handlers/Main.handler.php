@@ -140,8 +140,7 @@ class MainHandler{
     }
 
     public function testHeaders(Request $request, Response $response) {
-        print_r($request->getHeaders()); die();
-        return $this->success($response, "OK");
+        return $this->success($response, $request->getHeaders());
     }
 
     private function _loadCSV($content,$forceUpdate = false, $validateSpecialty = false){
