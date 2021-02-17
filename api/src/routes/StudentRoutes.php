@@ -13,7 +13,7 @@ class StudentRoutes{
          * Everything Related to the student itself
          **/
         $this->studentHandler = new \StudentHandler($app);
-        $app->get('/students/', array($this->studentHandler, 'getAllStudentsHandler'))->add($scopes(['read_basic_info']));
+        $app->get('/students/', array($this->studentHandler, 'getAllStudentsHandler'));//->add($scopes(['read_basic_info']));
         $app->get('/student/{student_id}', array($this->studentHandler, 'getStudentHandler'))->add($scopes(['read_basic_info']));
 
         $app->put('/student/', array($this->studentHandler, 'createStudentHandler'))->add($scopes(['crud_student']));

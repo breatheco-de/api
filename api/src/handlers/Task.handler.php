@@ -39,7 +39,13 @@ class TaskHandler extends MainHandler{
         $studentId = $request->getAttribute('student_id');
 
         $student = Student::find($studentId);
-        if(!$student) throw new ArgumentException('Invalid student id');
+        if(!$student){
+            $user = User::where('username', $studentId)->first();
+            if(!$user) throw new ArgumentException('Invalid student id');
+            $student = Student::find($user->id);
+            if(!$student) throw new ArgumentException('Invalid student id');
+        }
+        
 
         return $this->success($response,$student->tasks()->get());
     }

@@ -8,7 +8,7 @@ class TaskRoutes{
 
         $handler = new \TaskHandler($app);
         $app->get('/task/', array($handler, 'getAllTasksHandler'))->add($scopes(['read_basic_info']));
-        $app->get('/student/{student_id}/task/', array($handler, 'getAllStudentTasksHandler'))->add($scopes(['read_basic_info']));
+        $app->get('/student/{student_id}/task/', array($handler, 'getAllStudentTasksHandler'));//->add($scopes(['read_basic_info']));
         $app->post('/student/{student_id}/task/', array($handler, 'createTaskHandler'))->add($scopes(['student_tasks']));
         $app->delete('/student/{student_id}/task/all', array($handler, 'deleteAllStudentTasksHandler'))->add($scopes(['student_tasks']));
 
