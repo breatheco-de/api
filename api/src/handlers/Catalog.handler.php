@@ -16,6 +16,7 @@ class CatalogHandler extends MainHandler{
         "spain" => ["Madrid", "Barcelona", 'Galicia', 'Valencia'],
         "colombia" => ["Bogota", "Medellin"],
         "guatemala" => ["Guatemala City"],
+        "uruguay" => ["San Jose", "Montevideo"],
         "costa-rica" => ["San Jose"],
         ];
     public static $technologies = ['CSS3','JS','PHP','GIT','C9','HTML5','REACT','WORDPRESS','AJAX','DJANGO','MYSQL','MONGODB'];
